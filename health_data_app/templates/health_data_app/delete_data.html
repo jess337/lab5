@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Data</title>
+</head>
+<body>
+    <h1>Delete Data for Patient ID: {{ patient_id }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <a href="{% url 'list_data' %}">Back to List</a>
+</body>
+</html>

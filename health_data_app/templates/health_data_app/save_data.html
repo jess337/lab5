@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Medical Data</title>
+</head>
+<body>
+    <h1>Save Medical Data</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <label for="save_to">Save to:</label>
+        <select id="save_to" name="save_to">
+            <option value="db">Database</option>
+            <option value="file">File</option>
+        </select>
+        <label for="file_format">File Format:</label>
+        <select id="file_format" name="file_format">
+            <option value="json">JSON</option>
+            <option value="xml">XML</option>
+        </select>
+        <button type="submit">Save</button>
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <br>
+    <a href="{% url 'load_data' %}">Load Data</a> |
+    <a href="{% url 'list_data' %}">List Data</a>
+</body>
+</html>

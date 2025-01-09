@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Medical Data</title>
+</head>
+<body>
+    <h1>Load Medical Data</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file" accept=".json, .xml" required>
+        <button type="submit">Load</button>
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <br>
+    <a href="{% url 'save_data' %}">Save Data</a> |
+    <a href="{% url 'list_data' %}">List Data</a>
+</body>
+</html>

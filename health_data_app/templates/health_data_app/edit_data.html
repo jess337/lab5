@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Data</title>
+</head>
+<body>
+    <h1>Edit Data for Patient ID: {{ patient_id }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'list_data' %}">Back to List</a>
+</body>
+</html>
